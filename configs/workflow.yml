@@ -1,0 +1,62 @@
+# Starter workflow shape for NVIDIA NeMo Agent Toolkit.
+# Verify exact component names against the installed NAT version with:
+#   nat info components
+
+general:
+  telemetry:
+    logging:
+      console:
+        _type: console
+        level: INFO
+      file:
+        _type: file
+        path: ./nat_token_economics.log
+        level: DEBUG
+    tracing:
+      phoenix:
+        _type: phoenix
+        endpoint: http://localhost:6006/v1/traces
+        project: chargebee-cfo-token-economics
+      otelcollector:
+        _type: otelcollector
+        endpoint: http://localhost:4318/v1/traces
+        project: chargebee-cfo-token-economics
+
+llms:
+  planner_llm:
+    _type: nim
+    model_name: nvidia/nemotron-3-nano-30b-a3b
+    temperature: 0.0
+    chat_template_kwargs:
+      enable_thinking: false
+  analyst_llm:
+    _type: nim
+    model_name: nvidia/nemotron-3-super-120b-a12b
+    temperature: 0.1
+    chat_template_kwargs:
+      enable_thinking: false
+
+functions:
+  invoice_metrics_lookup:
+    _type: python_function
+    module: scripts.chargebee_finance_tools
+    function: invoice_metrics_lookup
+  revenue_policy_lookup:
+    _type: python_function
+    module: scripts.chargebee_finance_tools
+    function: revenue_policy_lookup
+  variance_calculator:
+    _type: python_function
+    module: scripts.chargebee_finance_tools
+    function: variance_calculator
+
+workflow:
+  _type: react_agent
+  llm_name: planner_llm
+  tool_names:
+    - invoice_metrics_lookup
+    - revenue_policy_lookup
+    - variance_calculator
+  verbose: true
+  parse_agent_response_max_retries: 2
+

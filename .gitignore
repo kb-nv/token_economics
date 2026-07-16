@@ -1,0 +1,14 @@
+.DS_Store
+.env
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+nat_token_economics.log
+otellogs/
+sample_data/relay_normalized_events.jsonl
+sample_data/tmp_*.csv
+dist/
+build/
+*.egg-info/
+

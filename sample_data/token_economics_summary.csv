@@ -1,0 +1,12 @@
+trace_id,source,stage,event_type,model,prompt_tokens,completion_tokens,reasoning_tokens,cached_tokens,total_tokens,latency_ms,success,retry,cost_usd
+run-001,nat,planner,LLM_END,nvidia/nemotron-3-nano-30b-a3b,1380,180,0,0,1560,820,True,,0.00048
+run-001,nat,invoice_metrics_lookup,TOOL_END,,0,0,0,0,0,120,True,,0.0
+run-001,relay,external_policy_agent,LLM_END,nvidia/nemotron-3-nano-30b-a3b,2450,260,0,600,2710,1040,True,,0.0006875
+run-001,nat,variance_analysis,LLM_END,nvidia/nemotron-3-super-120b-a12b,3120,520,120,0,3760,2100,True,,0.004032
+run-001,nat,cfo_summary,LLM_END,nvidia/nemotron-3-super-120b-a12b,1960,640,80,0,2680,1880,True,,0.003296
+run-001,nat,validator,LLM_END,nvidia/nemotron-3-nano-30b-a3b,1540,120,0,0,1660,760,True,,0.000475
+run-002,nat,planner,LLM_END,nvidia/nemotron-3-nano-30b-a3b,1420,220,0,0,1640,900,True,,0.00052
+run-002,relay,external_policy_agent_retry,LLM_END,nvidia/nemotron-3-nano-30b-a3b,2600,90,0,0,2690,980,False,True,0.0007175
+run-002,relay,external_policy_agent,LLM_END,nvidia/nemotron-3-nano-30b-a3b,2300,240,0,400,2540,1020,True,,0.000675
+run-002,nat,variance_analysis,LLM_END,nvidia/nemotron-3-super-120b-a12b,3350,560,160,0,4070,2220,True,,0.004408
+run-002,nat,cfo_summary,LLM_END,nvidia/nemotron-3-super-120b-a12b,2060,680,90,0,2830,1930,True,,0.003496

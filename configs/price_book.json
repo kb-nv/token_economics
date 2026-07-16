@@ -1,0 +1,21 @@
+{
+  "nvidia/nemotron-3-nano-30b-a3b": {
+    "prompt_per_million": 0.25,
+    "completion_per_million": 0.75,
+    "reasoning_per_million": 0.75,
+    "cached_prompt_per_million": 0.05
+  },
+  "nvidia/nemotron-3-super-120b-a12b": {
+    "prompt_per_million": 0.8,
+    "completion_per_million": 2.4,
+    "reasoning_per_million": 2.4,
+    "cached_prompt_per_million": 0.16
+  },
+  "embedding-model": {
+    "prompt_per_million": 0.02,
+    "completion_per_million": 0.0,
+    "reasoning_per_million": 0.0,
+    "cached_prompt_per_million": 0.0
+  }
+}
+

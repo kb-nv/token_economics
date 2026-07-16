@@ -1,0 +1,14 @@
+[project]
+name = "nat-relay-token-economics"
+version = "0.1.0"
+description = "Token economics prototype for NVIDIA NeMo Agent Toolkit and Relay-style telemetry."
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+nvidia = ["nvidia-nat[opentelemetry,phoenix,profiler]"]
+notebook = ["jupyter", "ipykernel"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+

@@ -1,0 +1,21 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Validate repository
+        run: python scripts/validate_repo.py
+      - name: Run local demo
+        run: python scripts/run_local_demo.py --events sample_data/agent_trace_events.jsonl --price-book configs/price_book.json --out sample_data/token_economics_summary.csv
+      - name: Run tests
+        run: python -m unittest discover -s tests
+
