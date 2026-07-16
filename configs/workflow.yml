@@ -16,11 +16,11 @@ general:
       phoenix:
         _type: phoenix
         endpoint: http://localhost:6006/v1/traces
-        project: chargebee-cfo-token-economics
+        project: cfo-token-economics
       otelcollector:
         _type: otelcollector
         endpoint: http://localhost:4318/v1/traces
-        project: chargebee-cfo-token-economics
+        project: cfo-token-economics
 
 llms:
   planner_llm:
@@ -39,15 +39,15 @@ llms:
 functions:
   invoice_metrics_lookup:
     _type: python_function
-    module: scripts.chargebee_finance_tools
+    module: scripts.finance_tools
     function: invoice_metrics_lookup
   revenue_policy_lookup:
     _type: python_function
-    module: scripts.chargebee_finance_tools
+    module: scripts.finance_tools
     function: revenue_policy_lookup
   variance_calculator:
     _type: python_function
-    module: scripts.chargebee_finance_tools
+    module: scripts.finance_tools
     function: variance_calculator
 
 workflow:
@@ -59,4 +59,3 @@ workflow:
     - variance_calculator
   verbose: true
   parse_agent_response_max_retries: 2
-

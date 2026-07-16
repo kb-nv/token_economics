@@ -44,7 +44,7 @@ NAT / Relay telemetry -> normalized trace events -> token economics parser -> CF
 │   ├── relay_atof_events.jsonl
 │   └── token_economics_summary.csv
 ├── scripts/
-│   ├── chargebee_finance_tools.py
+│   ├── finance_tools.py
 │   ├── parse_relay_atof.py
 │   ├── run_local_demo.py
 │   ├── token_economics.py
@@ -122,4 +122,5 @@ When NAT is installed, the same integration point can use `nat.experimental.rela
 
 - `configs/price_book.json` contains placeholder demo prices. Replace them with approved pricing before using the numbers for a financial readout.
 - The workflow config is a starter shape. Confirm component names against the installed NAT version with `nat info components`.
-- The notebook defaults to `RUN_COMMANDS = False` and is safe to run locally for the economics simulation.
+- The notebook defaults to `RUN_COMMANDS = True` for the local economics simulation.
+- Live infrastructure commands are controlled separately with `RUN_LIVE_NVIDIA_COMMANDS` and `RUN_INFRA_COMMANDS`.
